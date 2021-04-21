@@ -1,4 +1,5 @@
 import 'package:care_me/screens/background.dart';
+import 'package:care_me/screens/signup/signup.dart';
 import 'package:care_me/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.white,
+
       ),
       home: welcome(),
     );
