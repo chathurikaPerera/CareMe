@@ -20,8 +20,6 @@ class Background extends StatelessWidget {
                 ),
               ),
              Container(
-               //height: 50.0,
-               //color: Colors.lightBlue,
                padding: EdgeInsets.only(top: 50.0),
                child: Center(
                  child: Text(

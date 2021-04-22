@@ -1,4 +1,5 @@
 import 'package:care_me/screens/background.dart';
+import 'package:care_me/screens/signup/first.dart';
 import 'package:care_me/screens/signup/signup.dart';
 import 'package:care_me/screens/welcome.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
 
       ),
-      home: welcome(),
+      home:welcome(),
     );
   }
 }
