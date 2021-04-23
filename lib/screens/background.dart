@@ -1,4 +1,5 @@
 import 'package:care_me/components/button.dart';
+import 'package:care_me/screens/login/login.dart';
 import 'package:care_me/screens/signup/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +57,16 @@ class Background extends StatelessWidget {
                      text: 'LOGIN',
                      textColor: Colors.white,
                      color: Colors.purple[500],
-                     press: (){},
+                     press: (){
+                       Navigator.push(context,
+                         MaterialPageRoute(
+                           builder: (context){
+                             return Login();
+                           }
+                         )
+                       );
+
+                     },
 
                    )
                ),

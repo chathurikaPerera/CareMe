@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "19258335922",
+    "project_id": "careme-4c7cf",
+    "storage_bucket": "careme-4c7cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19258335922:android:3c9f60aeed2834efeb5fab",
+        "android_client_info": {
+          "package_name": "com.example.care_me"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "19258335922-rfd1sjvhe69mvi871gtaci70937pdbsa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6qxQ8GP1bvVrywwEhOUuf841_uSS0WME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "19258335922-rfd1sjvhe69mvi871gtaci70937pdbsa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

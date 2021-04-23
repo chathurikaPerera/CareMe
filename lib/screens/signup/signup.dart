@@ -1,3 +1,4 @@
+import 'package:care_me/components/button.dart';
 import 'package:care_me/screens/signup/background.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -112,7 +113,12 @@ class Signup extends StatelessWidget {
                   width: 200.0,
                 ),
                 Container(
-
+                  child: Button(
+                    text: 'Submit',
+                    textColor: Colors.white,
+                    color: Colors.purple[500],
+                    press: (){},
+                  ),
                 )
               ],
             ),
