@@ -3,6 +3,7 @@ import 'package:care_me/screens/login/login.dart';
 import 'package:care_me/screens/signup/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Background extends StatelessWidget {
   @override
