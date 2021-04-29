@@ -32,6 +32,7 @@ class MainActivity: FlutterActivity() {
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        //setContentView(R.layout.main.dart)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {
             call, result ->
             if (call.method == "method")

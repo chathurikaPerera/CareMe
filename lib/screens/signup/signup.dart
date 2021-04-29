@@ -1,7 +1,13 @@
 import 'package:care_me/components/button.dart';
-import 'package:care_me/screens/signup/background.dart';
+import 'package:care_me/models/authentication.dart';
+import 'package:care_me/screens/doctor/doctorHome.dart';
+import 'package:care_me/screens/patient/patientHome.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Signup extends StatefulWidget {
   @override
@@ -10,9 +16,70 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
 
+  String _userRole;
+  bool _state;
   final GlobalKey<FormState> _formkey = GlobalKey();
   TextEditingController _passwordController = new TextEditingController();
-  void _submit(){
+  TextEditingController _name = new TextEditingController();
+  TextEditingController _email = new TextEditingController();
+  TextEditingController _role = new TextEditingController();
+  FirebaseAuth auth = FirebaseAuth.instance;
+
+  Future<bool> _submit() async{
+   try {
+     print(_name.text);
+     print(_email.text);
+     //await Firebase.initializeApp();
+     UserCredential user = await FirebaseAuth.instance
+         .createUserWithEmailAndPassword(
+         email: _email.text,
+         password: _passwordController.text
+     );
+     if(FirebaseAuth.instance.currentUser != null)
+       {
+         // Provider.of<Authentication>(context, listen: false).addUser(
+         //   _name.text.trim(),
+         //   _email.text.trim(),
+         //   _userRole.trim(),
+         // );
+         CollectionReference user = FirebaseFirestore.instance.collection('users');
+         String uid = auth.currentUser.uid.toString();
+         // user.add({
+         //   "displayName" : displayName,
+         //   "id" : uid,
+         //   "email": email
+         // });
+         try{
+           await user.doc(uid).set({
+             'displayName' : _name.text.trim(),
+             'email' : _email.text.trim(),
+             'role' : _userRole.trim(),
+             'id' : uid,
+           });
+           if(_userRole == 'doctor')
+           {
+             await Navigator.push(context, MaterialPageRoute(builder: (context){
+               return DoctorHome();
+              }));
+           }
+           else {
+             await Navigator.push(
+                 context, MaterialPageRoute(builder: (context) {
+               return PatientHome();
+             }));
+           }
+         } catch(e){
+           return e;
+         }
+       }
+     else{
+       print('you already have account');
+     }
+
+   }catch (e){
+     print(e.toString());
+   }
+   return true;
 
   }
 
@@ -40,7 +107,7 @@ class _SignupState extends State<Signup> {
                   Container(
                     padding: EdgeInsets.only(top: 20.0),
                     child: TextFormField(
-                      //maxLines: 2,
+                      controller: _name,
                       decoration: InputDecoration(
                         focusColor: Colors.purple[500],
                         labelText: 'Name',
@@ -85,6 +152,64 @@ class _SignupState extends State<Signup> {
                         }
                         return null;
                       },
+                      controller: _email,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 20.0),
+                    child: DropdownButtonFormField(
+                      decoration: InputDecoration(
+                          focusColor: Colors.purple[500],
+                          labelText: 'Role',
+                          labelStyle: TextStyle(
+                              color: Colors.purple[200]
+                          ),
+                          icon: Icon(
+                            Icons.description,
+                            color: Colors.deepPurple,
+                          )
+
+                      ),
+                      items: [
+                        DropdownMenuItem(
+                          child: Text('Patient'),
+                          value: 'patient',
+                        ),
+                        DropdownMenuItem(
+                          child: Text('Doctor'),
+                          value: 'doctor',
+                        )
+
+                      ],
+                        onChanged: (value) {
+                          _userRole = value;
+                        }
+                      //titleText: 'Role',
+                      //hintText: 'Please select role',
+                      // value: _userRole,
+                      // onSaved: (value){
+                      //   setState(() {
+                      //     _userRole= value;
+                      //   });
+                      // },
+                      // onChanged: (value) {
+                      //   setState(() {
+                      //     _userRole = value;
+                      //   });
+                      // },
+                      // dataSource: [
+                      //   {
+                      //     "display" : "Patient",
+                      //     "value" : "patient",
+                      //   },
+                      //   {
+                      //     "display" : "Doctor",
+                      //     "value" : "doctor",
+                      //   }
+                      // ],
+                      // textField: 'display',
+                      // valueField: 'value',
+
                     ),
                   ),
                   Container(
@@ -149,6 +274,10 @@ class _SignupState extends State<Signup> {
                       color: Colors.purple[500],
                       press: (){
                         _submit();
+                        if(_submit() == true)
+                          {
+                            print('login page');
+                          }
                       },
                     ),
                   )

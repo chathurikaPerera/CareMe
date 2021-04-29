@@ -1,126 +1,63 @@
-
-import 'package:care_me/screens/signup/background.dart';
-import 'package:flutter/material.dart';
-
-class First extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Background(
-        child: SingleChildScrollView(
-          child: Form(
-              child: Container(
-                margin: const EdgeInsets.all(24.0),
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.only(top: 50.0),
-                      child: Text(
-                        'SIGN UP',
-                        style: TextStyle(
-                          color: Colors.purple[500],
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25.0,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 20.0),
-                      child: TextFormField(
-                        //maxLines: 2,
-                        decoration: InputDecoration(
-                          focusColor: Colors.purple[500],
-                          hintText: 'Full Name',
-                          hintStyle: TextStyle(
-                              color: Colors.purple[200]
-                          ),
-                        ),
-                        cursorHeight: 25.0,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 20.0),
-                      child: TextFormField(
-                        //maxLines: 2,
-                        decoration: InputDecoration(
-                          focusColor: Colors.purple[500],
-                          hintText: 'NIC',
-                          hintStyle: TextStyle(
-                              color: Colors.purple[200]
-                          ),
-                        ),
-                        cursorHeight: 25.0,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 20.0),
-                      child: TextFormField(
-                        //maxLines: 2,
-                        decoration: InputDecoration(
-                          focusColor: Colors.purple[500],
-                          hintText: 'Mobile Number',
-                          hintStyle: TextStyle(
-                              color: Colors.purple[200]
-                          ),
-                        ),
-                        cursorHeight: 25.0,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 20.0),
-                      child: TextFormField(
-                        //maxLines: 2,
-                        decoration: InputDecoration(
-                          focusColor: Colors.purple[500],
-                          hintText: 'Address',
-                          hintStyle: TextStyle(
-                              color: Colors.purple[200]
-                          ),
-                        ),
-                        cursorHeight: 25.0,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 20.0),
-                      child: TextFormField(
-                        //maxLines: 2,
-                        decoration: InputDecoration(
-                          focusColor: Colors.purple[500],
-                          hintText: 'Password',
-                          hintStyle: TextStyle(
-                              color: Colors.purple[200]
-                          ),
-                        ),
-                        cursorHeight: 25.0,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 20.0),
-                      child: TextFormField(
-                        //maxLines: 2,
-                        decoration: InputDecoration(
-                          focusColor: Colors.purple[500],
-                          hintText: 'Confirm Password',
-                          hintStyle: TextStyle(
-                              color: Colors.purple[200]
-                          ),
-                        ),
-                        cursorHeight: 25.0,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 100.0,
-                      width: 200.0,
-                    ),
-                    Container(
-
-                    )
-                  ],
-                ),
-              )
-          ),
-        ),
-      ),
-    );
-  }
-}
+// import 'package:care_me/models/authentication.dart';
+// import 'package:care_me/screens/welcome.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_svg/svg.dart';
+// import 'package:provider/provider.dart';
+// import 'dart:async';
+// import 'package:flutter/services.dart';
+//
+//
+// void main() {
+//   runApp(MyApp());
+// }
+//
+// class MyApp extends StatelessWidget {
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(
+//         primarySwatch: Colors.purple,
+//
+//       ),
+//       home: Test(),
+//     );
+//   }
+// }
+//
+// class Test extends StatefulWidget {
+//   @override
+//   _TestState createState() => _TestState();
+// }
+//
+// class _TestState extends State<Test> {
+//
+//   static const platform = const MethodChannel("com.flutter.care_me/careme");
+//
+//   Future<void> printy() async{
+//     String value;
+//     try{
+//       value = await platform.invokeMethod("method");
+//       print(value);
+//     }catch(e){
+//       print(e);
+//     }
+//     //print(value);
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         body: Center(
+//           child: RaisedButton(
+//             child: Text('click me'),
+//             onPressed: (){
+//               printy();
+//             },
+//           ),
+//         )
+//     );
+//   }
+//
+// }
